@@ -3,6 +3,7 @@ services:
   web:
     container_name: nginx
     image: nginx
+    restart: unless-stopped
     volumes:
     - ./nginx/conf.d:/etc/nginx/conf.d
     ports:
@@ -10,7 +11,7 @@ services:
   db:
     container_name: pgsql
     image: postgres
-    restart: always
+    restart: unless-stopped
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
@@ -20,7 +21,7 @@ services:
   pgadmin:
     container_name: pgadmin4
     image: dpage/pgadmin4
-    restart: always
+    restart: unless-stopped
     environment:
       PGADMIN_DEFAULT_EMAIL: haohl@local.cn
       PGADMIN_DEFAULT_PASSWORD: admin
