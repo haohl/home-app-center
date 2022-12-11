@@ -6,6 +6,7 @@ services:
     restart: unless-stopped
     volumes:
     - ./nginx/conf.d:/etc/nginx/conf.d
+    - ./portal/dist:/usr/share/nginx/html
     ports:
     - "80:80"
   db:
