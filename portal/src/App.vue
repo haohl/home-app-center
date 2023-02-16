@@ -4,7 +4,7 @@
 
 <template>
     <div class="container-fluid d-flex flex-row m-5 gap-5">
-        <a href="http://server-wsl.cd.cn/pgadmin/browser/" target="_blank" rel="noopener noreferrer">
+        <a href="./pgadmin/browser/" target="_blank" rel="noopener noreferrer">
             <div class="card border-primary" style="width: 18rem;">
                 <div class="card-header text-bg-primary fw-bold pt-2 ps-3">pgAdmin</div>
                 <div class="card-body d-flex">
@@ -14,7 +14,7 @@
                 </div>
             </div>
         </a>
-        <a href="http://server-wsl.cd.cn/transmission/web/" target="_blank" rel="noopener noreferrer">
+        <a href="./transmission/web/" target="_blank" rel="noopener noreferrer">
             <div class="card border-primary" style="width: 18rem;">
                 <div class="card-header text-bg-primary fw-bold pt-2 ps-3">Transmission</div>
                 <div class="card-body d-flex">

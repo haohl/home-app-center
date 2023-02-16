@@ -14,9 +14,9 @@ services:
     image: postgres
     restart: unless-stopped
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
-      POSTGRES_DB: home-app-center
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - /var/lib/postgresql/data:/var/lib/postgresql/data
   pgadmin:
@@ -24,8 +24,8 @@ services:
     image: dpage/pgadmin4
     restart: unless-stopped
     environment:
-      PGADMIN_DEFAULT_EMAIL: haohl@local.cn
-      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
     volumes:
       - /var/lib/pgadmin:/var/lib/pgadmin
   transmission:
@@ -35,8 +35,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Asia/Shanghai
-      - USER=haohl 
-      - PASS=benimaru97;
+      - "USER=${TRANSIMSSION_USER}" 
+      - "PASS=${TRANSIMSSION_PASSWORD}"
     volumes:
       - ~/transmission/config:/config
       - ~/transmission/downloads:/downloads
