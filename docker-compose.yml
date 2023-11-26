@@ -9,6 +9,13 @@ services:
     - ./portal/dist:/usr/share/nginx/html
     ports:
     - "80:80"
+  tunnel:
+    container_name: cloudflared-tunnel
+    image: cloudflare/cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
   db:
     container_name: pgsql
     image: postgres
@@ -47,3 +54,11 @@ services:
       - 51413:51413
       - 51413:51413/udp
     restart: unless-stopped
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    volumes:
+      - vaultwarden:/data/
+    restart: unless-stopped
+volumes:
+  vaultwarden:
